@@ -9,6 +9,22 @@ https://github.com/shicai/MobileNet-Caffe
 - signle_op_helper 用于单步operator操作验证
 - run_accuracy.py 脚本用于准确率测试，
 
+## 脚本使用
+```
+# caffe 模型准确率
+python3  caffe_run_accuracy_mobilenet.py  model/mobilenet_deploy.prototxt  model/mobilenet.caffemodel  ~/share/img_data/img_org_01_4999/
+
+# onnx 模型准确率
+python3  onnx_run_accuracy_mobilenet.py    model/mobilenet.onnx   ~/share/img_data/img_org_01_4999/
+
+# 提取 onnx 模型参数
+python3  get_onnx_weights.py  model/mobilenet.onnx   weights
+
+# 单步 onnx 操作验证
+python3   conv_helper.py
+
+```
+
 
 ## 准确率测试 
 测试数据：ILSVRC2012 测试集合 01-4999 共5000张图片
